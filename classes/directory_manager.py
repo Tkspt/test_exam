@@ -8,8 +8,9 @@ class DirectoryManager:
 
     def createEmptyDirectories(self, folders=[]):
         for folder in folders:
-            os.makedirs(os.path.join(self.path, folder))
-            with open('.gitkeep', 'w') as f:
+            local_path = os.path.join(self.path, folder)
+            os.makedirs(local_path)
+            with open(f'{local_path}/.gitkeep', 'w') as f:
                 f.write('')
 
     def createFile(self, file, content=''):
